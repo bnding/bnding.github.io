@@ -1,0 +1,35 @@
+.section1 {
+    margin-top: 25px;
+}
+
+.section1 h4 {
+    text-align: center;
+}
+
+.section1 #shortBio {
+    margin-left: 5px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.loading {
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0; 
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+}
+
+.ldBar {
+    width: 35% !important;
+    height: 100% !important;
+    left: 33%;
+}
+
+.position {
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+}
