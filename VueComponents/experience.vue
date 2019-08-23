@@ -4,7 +4,7 @@
       <div v-if="item.numPositions == 1">
         <h4 class="d-inline col-md-1">{{ item.company }}</h4>
         <h6 class="d-inline col-md-11">{{ item.start }} - {{ item.end }}</h6>
-        <h6 class="position col-md-1">{{ item.position }}</h6>
+        <h6 class="position col-md-2">{{ item.position }}</h6>
         <ul class="ml-4 mr-4">
           <li v-for="bullets in item.experience" v-bind:key="bullets.id">{{ bullets }}</li>
         </ul>
@@ -13,7 +13,16 @@
         <h4 class="d-inline col-md-1">{{ item.company }}</h4>
         <h6 class="d-inline col-md-11">{{ item.start }} - {{ item.end }}</h6>
         <div v-for="(n,i) in item.numPositions" v-bind:key="n">
-          <h6 class="position col-md-4">{{ item.positions[i].position }}</h6>
+          <h6 class="position d-inline col-md-1">{{ item.positions[i].position }}</h6>
+          <h6
+            class="position d-inline col-md-11"
+          >{{ item.positions[i].start }} - {{ item.positions[i].end }}</h6>
+          <ul class="ml-4 mr-4">
+            <li
+              v-for="bullets in item.positions[i].experience"
+              v-bind:key="bullets.id"
+            >{{ bullets }}</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -68,6 +77,20 @@ module.exports = {
                 "Maintaining over 50 computers in each computer lab on three sites for the students and faculty to use."
               ]
             }
+          ]
+        },
+        {
+          company: "Language Pilgrim LLC",
+          start: "May 2017",
+          end: "August 2018",
+          numPositions: 1,
+          position: "Web Developer Intern",
+          experience: [
+            "Assisted a Senior Software Developer update the backend of a website for Educational Testing Service (ETS).",
+            "Data processed the ETS database through Python to make compatible in JSON.",
+            "Used JQuery to update a search bar that identified key words.",
+            "Created a Basketball Database using SQLite and website for the Developer",
+            "Managed the database and data processed the database using Python."
           ]
         }
       ]
