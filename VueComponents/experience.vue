@@ -4,7 +4,7 @@
       <div v-if="item.numPositions == 1">
         <h4 class="d-inline col-md-1">{{ item.company }}</h4>
         <h6 class="d-inline col-md-11">{{ item.start }} - {{ item.end }}</h6>
-        <h6 class="position col-md-2">{{ item.position }}</h6>
+        <h6 class="position col-md-4">{{ item.position }}</h6>
         <ul class="ml-4 mr-4">
           <li v-for="bullets in item.experience" v-bind:key="bullets.id">{{ bullets }}</li>
         </ul>
