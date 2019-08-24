@@ -1,3 +1,15 @@
+@font-face {
+    font-family: "QuicksandRegular";
+    src: url("../fonts/Quicksand-Regular.otf") format("opentype");
+}
+
+
+
+body {
+    font-family: "Open Sans";
+    letter-spacing: 0px;
+}
+
 ul {
     list-style: none;
     margin-left: 0;
@@ -36,3 +48,12 @@ section {
     left: 50px;
 }
 
+@media only screen and (max-width: 1060px) { /* Screen which has a maximum width of 900px */
+    #portrait {
+        top: 5px;
+        left: 0px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  
+  }
