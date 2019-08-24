@@ -13,7 +13,7 @@ module.exports = {
   name: "skills",
   data: function() {
       return {
-          skills: ["Java", "JavaScript", "Python", "HTML", "CSS"]
+          skills: ["Java", "Python", "JavaScript", "HTML", "CSS"]
       }
   }
   
