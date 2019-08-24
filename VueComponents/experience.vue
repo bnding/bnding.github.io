@@ -96,10 +96,5 @@ module.exports = {
       ]
     };
   },
-  created: function() {
-    if (this.numPositions > 1) {
-      alert(this.company);
-    }
-  }
 };
 </script>

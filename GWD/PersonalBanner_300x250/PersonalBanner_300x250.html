@@ -10,6 +10,7 @@
   <link href="gwdpage_style.css" rel="stylesheet" data-version="12" data-exports-type="gwd-page">
   <link href="gwdpagedeck_style.css" rel="stylesheet" data-version="12" data-exports-type="gwd-pagedeck">
   <link href="gwdgooglead_style.css" rel="stylesheet" data-version="5" data-exports-type="gwd-google-ad">
+  <link href="gwdimage_style.css" rel="stylesheet" data-version="13" data-exports-type="gwd-image">
   <style type="text/css" id="gwd-lightbox-style">
     .gwd-lightbox {
       overflow: hidden;
@@ -55,6 +56,13 @@
       width: 300px;
       height: 250px;
     }
+    .gwd-image-1n5u {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      left: 50px;
+      top: 20px;
+    }
   </style>
   <script data-source="googbase_min.js" data-version="4" data-exports-type="googbase" src="googbase_min.js"></script>
   <script data-source="gwd_webcomponents_min.js" data-version="6" data-exports-type="gwd_webcomponents" src="gwd_webcomponents_min.js"></script>
@@ -62,6 +70,7 @@
   <script data-source="gwdpagedeck_min.js" data-version="12" data-exports-type="gwd-pagedeck" src="gwdpagedeck_min.js"></script>
   <script data-source="https://s0.2mdn.net/ads/studio/Enabler.js" data-exports-type="gwd-google-ad" src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
   <script data-source="gwdgooglead_min.js" data-version="5" data-exports-type="gwd-google-ad" src="gwdgooglead_min.js"></script>
+  <script data-source="gwdimage_min.js" data-version="13" data-exports-type="gwd-image" src="gwdimage_min.js"></script>
 </head>
 
 <body>
@@ -69,7 +78,9 @@
     <gwd-metric-configuration></gwd-metric-configuration>
     <gwd-pagedeck class="gwd-page-container" id="pagedeck">
       <gwd-page id="page1" class="gwd-page-wrapper gwd-page-size gwd-lightbox" data-gwd-width="300px" data-gwd-height="250px">
-        <div class="gwd-page-content gwd-page-size"></div>
+        <div class="gwd-page-content gwd-page-size">
+          <gwd-image id="ND2" source="assets/ND2.png" scaling="stretch" class="gwd-image-1n5u"></gwd-image>
+        </div>
       </gwd-page>
     </gwd-pagedeck>
   </gwd-google-ad>

@@ -2,9 +2,17 @@
 function renderComponents() {
     window.Vue = Vue;
     new Vue({
-        el: "#myExperience",
+        el: "#experience",
         components: {
             'experience': httpVueLoader("../VueComponents/experience.vue")
+        },
+
+    })
+
+    new Vue({
+        el: "#skills",
+        components: {
+            'skills': httpVueLoader("../VueComponents/skills.vue")
         }
     })
 }
