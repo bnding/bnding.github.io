@@ -51,10 +51,6 @@ section {
     margin-top: 50px;
 }
 
-.skills {
-    margin-top: 40px;
-}
-
 @media only screen and (max-width: 1060px) {
     /* Screen which has a maximum width of 900px */
     #portrait {

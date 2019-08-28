@@ -1,4 +1,20 @@
 
+function init() {
+    // hide slide content
+    $(document).ready(function () {
+        $(".slideContent").hide();
+    })
+
+    // Alternate section colors
+    var count = 0;
+    $("section").each(function (index) {
+        if (count % 2 == 0) {
+            $(this).css({ "background-color": "#192024", "color": "#fff" })
+        }
+        count++;
+    })
+}
+
 function renderComponents() {
     window.Vue = Vue;
     new Vue({
@@ -17,18 +33,6 @@ function renderComponents() {
     })
 }
 
-function alternateSections() {
-    $(document).ready(function () {
-        var count = 0;
-        $("section").each(function (index) {
-            if (count % 2 == 0) {
-                $(this).css({"background-color": "#192024", "color": "#fff"})
-            }
-            count++;
-        })
-    })
 
-}
-
-alternateSections();
+init();
 renderComponents();
