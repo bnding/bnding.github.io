@@ -1,10 +1,5 @@
 
 function init() {
-    // hide slide content
-    $(document).ready(function () {
-        $(".slideContent").hide();
-    })
-
     // Alternate section colors
     var count = 0;
     $("section").each(function (index) {

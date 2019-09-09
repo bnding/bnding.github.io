@@ -5,8 +5,10 @@
       <div class="skillContent" v-on:click="slideDown">
         <img class="d-inline mb-1" v-bind:src="'/images/' + skill + '.png'" width="28" height="28" />
         <h6 class="d-inline ml-2">{{ skill }}</h6>
-        <div class="slideContent" v-bind:class="skill +  'Content'">
-          <p>Content per skill</p>
+        <div class="slideContent">
+          <div v-bind:class="skill +  'Content'">
+            <p>Content per skill</p>
+          </div>
         </div>
       </div>
     </div>
@@ -26,6 +28,11 @@ module.exports = {
       $(".slideContent").slideToggle();
       console.log(event);
     }
+  },
+  created: function() {
+    $(document).ready(function() {
+      $(".slideContent").hide();
+    });
   }
 };
 </script>
