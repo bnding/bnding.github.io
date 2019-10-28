@@ -1,15 +1,14 @@
 <template>
   <div class="row text-center skillBar">
-    <!-- TODO: Create accordian here. -->
     <div v-for="skill in skills" v-bind:key="skill.id" class="col skill">
       <div class="skillContent" v-on:click="slideDown">
         <img class="d-inline mb-1" v-bind:src="'/images/' + skill + '.png'" width="28" height="28" />
         <h6 class="d-inline ml-2">{{ skill }}</h6>
-        <div class="slideContent">
-          <div v-bind:class="skill +  'Content'">
-            <p>Content per skill</p>
-          </div>
-        </div>
+        <!-- <div class="slideContent"> -->
+        <!-- <div v-bind:class="skill +  'Content'">
+          <p>Content per skill</p>
+        </div> -->
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -20,7 +19,7 @@ module.exports = {
   name: "skills",
   data: function() {
     return {
-      skills: ["Java", "Python", "JavaScript", "HTML", "CSS"]
+      skills: ["Java", "Python", "JavaScript", "HTML", "CSS", "Other"]
     };
   },
   methods: {
