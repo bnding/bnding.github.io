@@ -2,6 +2,7 @@
   <div>
     <div v-for="item in jsonData" v-bind:key="item.id">
       <div v-if="item.numPositions == 1">
+        <img class="imgSection" v-bind:src = "'images/' + item.company + '.png'" width="25" height="25">
         <h4 class="d-inline col-md-1">{{ item.company }}</h4>
         <h6 class="d-inline col-md-11">{{ item.start }} - {{ item.end }}</h6>
         <h6 class="position col-md-4">{{ item.position }}</h6>
@@ -10,6 +11,7 @@
         </ul>
       </div>
       <div v-else>
+        <img class="imgSection" v-bind:src = "'images/' + item.company + '.png'" width="25" height="25">
         <h4 class="d-inline col-md-1">{{ item.company }}</h4>
         <h6 class="d-inline col-md-11">{{ item.start }} - {{ item.end }}</h6>
         <div v-for="(n,i) in item.numPositions" v-bind:key="n">
@@ -43,10 +45,10 @@ module.exports = {
           position: "Developer Intern",
           experience: [
             "Designing iPad and Desktop web applications for agencies and clients of Janssen Pharmaceuticals.",
-            "Automating Important Safety Information provided by agencies into HTML and optimized work proficiency for other developers using Python.",
+            "Automating extraction of drug safety information provided by agencies into HTML and optimized work proficiency for other developers using Python.",
             "Using Python Tensorflow for live object detection.",
-            "Regularly using Vue.js, Bootstrap, jQuery, CSS, and HTML for development. ",
-            "Using Google Web Designer for small banner advertisement projects."
+            "Technologies used: Vue.js, Bootstrap, jQuery, CSS, HTML, and Google Web Designer",
+            "Other responsibilities: Development of advertisement material, contribution in website layout and design"
           ]
         },
 
