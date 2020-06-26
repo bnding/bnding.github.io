@@ -12,13 +12,6 @@
         <div v-bind:class="skills.titleClass + 'Content'">
           <ul>
             <li v-for="details in skills.skills" v-bind:key="details.id">
-              <!-- <img
-                class="imgSection"
-                v-if="checkImg('images/' + details + '.png')==='true'"
-                v-bind:src="'images/' + details + '.png'"
-                width="25"
-                height="25"
-              /> -->
               {{details}}
             </li>
           </ul>
@@ -37,7 +30,7 @@ module.exports = {
         {
           title: "Java",
           titleClass: "Java",
-          skills: ["Object Oriented Programming", "Data Structures"]
+          skills: ["Springboot", "Object Oriented Programming", "Data Structures"]
         },
         {
           title: "Python",
@@ -49,6 +42,7 @@ module.exports = {
           titleClass: "WebDevelopment",
           skills: [
             "Vue (This website is built with Vue!)",
+            "Angular",
             "jQuery",
             "JavaScript",
             "JSON",
@@ -81,14 +75,6 @@ module.exports = {
         .slideUp(500);
       $("." + skill + "Content").slideToggle(1000);
     },
-
-    // checkimg: function(path) {
-    //   $(".myimage").error(function() {
-    //     alert(path);
-    //     return false;
-    //   });
-    //   return true;
-    // }
   },
   created: function() {
     $(document).ready(function() {

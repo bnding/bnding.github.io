@@ -1,8 +1,13 @@
 <template>
-  <div>
+  <div class="ml-4">
     <div v-for="item in jsonData" v-bind:key="item.id">
       <div v-if="item.numPositions == 1">
-        <img class="imgSection" v-bind:src = "'images/' + item.company + '.png'" width="25" height="25">
+        <img
+          class="imgSection"
+          v-bind:src="'images/' + item.company + '.png'"
+          width="25"
+          height="25"
+        />
         <h4 class="d-inline col-md-1">{{ item.company }}</h4>
         <h6 class="d-inline col-md-11">{{ item.start }} - {{ item.end }}</h6>
         <h6 class="position col-md-4">{{ item.position }}</h6>
@@ -11,7 +16,12 @@
         </ul>
       </div>
       <div v-else>
-        <img class="imgSection" v-bind:src = "'images/' + item.company + '.png'" width="25" height="25">
+        <img
+          class="imgSection"
+          v-bind:src="'images/' + item.company + '.png'"
+          width="25"
+          height="25"
+        />
         <h4 class="d-inline col-md-1">{{ item.company }}</h4>
         <h6 class="d-inline col-md-11">{{ item.start }} - {{ item.end }}</h6>
         <div v-for="(n,i) in item.numPositions" v-bind:key="n">
@@ -38,9 +48,21 @@ module.exports = {
     return {
       jsonData: [
         {
+          company: "General Motors",
+          start: "June 2020",
+          end: "Present",
+          numPositions: 1,
+          position: "Software Developer",
+          experience: [
+            "Technologies: Angular, Springboot",
+            "Other responsibilities: System support"
+          ]
+        },
+
+        {
           company: "Local Wisdom",
           start: "June 2019",
-          end: "Present",
+          end: "June 2020",
           numPositions: 1,
           position: "Developer Intern",
           experience: [
@@ -61,7 +83,7 @@ module.exports = {
             {
               position: "Residential Network Dispatch",
               start: "September 2018",
-              end: "Present",
+              end: "September 2019",
               experience: [
                 "Providing internet service through Mac Authentication Bypass (MAB) for devices that do not support 802.1x.",
                 "Using Fluke Networks Linkrunner diagnostic tool to verify port activity pull information from the DHCP server for on-campus users.",
@@ -72,7 +94,7 @@ module.exports = {
             {
               position: "IT Consultant",
               start: "August 2017",
-              end: "Present",
+              end: "May 2020",
               experience: [
                 "Identifying and troubleshooting bugs, applications, connectivity, compatibility, and software for students and faculty.",
                 "Collaborating with coworkers to provide satisfying service for patrons with device problems.",

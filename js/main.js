@@ -16,16 +16,22 @@ function renderComponents() {
         el: "#experience",
         components: {
             'experience': httpVueLoader("../VueComponents/experience.vue")
-        },
-
-    })
+        }
+    });
 
     new Vue({
         el: "#skills",
         components: {
             'skills': httpVueLoader("../VueComponents/skills.vue")
         }
-    })
+    });
+
+    new Vue({
+        el: "#my-footer",
+        components: {
+            'my-footer': httpVueLoader("../VueComponents/myFooter.vue")
+        }
+    });
 }
 
 
