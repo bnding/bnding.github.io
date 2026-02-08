@@ -153,7 +153,7 @@
         </div>
     </nav>
 
-    <a href="PASTE_SPOTIFY_LINK_HERE" target="_blank"
+    <a href="https://open.spotify.com/playlist/5tk5CBJcnH6Lm04pmM3z06?si=f3862d6d2dad43c6&pt=c9506133b64a0d8c4f43d161b60a2468" target="_blank"
         class="fixed top-20 right-4 z-50 pixel-box w-16 h-16 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-transform cursor-pointer bg-slate-800 text-white shadow-xl no-underline">
         <div class="animate-spin-slow">💿</div>
         <div class="text-[6px] font-mono text-blue-300">🪈Tunes🎻</div>
@@ -164,6 +164,16 @@
         <div class="space-y-4">
             <div class="pixel-box p-5 text-center bg-white/90">
                 <div class="text-[9px] leading-loose text-slate-700 font-mono text-left bg-blue-50/50 p-2 rounded">
+                    <div class="p-4 text-center">
+                        <div
+                            class="text-xs justify-center mb-3 text-pixel-dark border-b-2 border-dashed border-pixel-dark pb-2 inline-block">
+                            MISSION BRIEFING</div>
+
+                        <div class="flex justify-center gap-4 text-[8px] font-mono text-slate-500">
+                            <div>📅 DATE: FEB 14</div>
+                            <div>⏰ START: 14:30</div>
+                        </div>
+                    </div>
                     <p class="mb-3">
                         <span class="text-slate-900 font-bold">OPERATION:</span><br>
                         VALENTINE PROTOCOL
@@ -263,7 +273,7 @@
                     <div class="text-[8px] leading-tight">You<br><span class="text-slate-400">Pickup @ Wburg</span>
                     </div>
                 </button>
-                <button id="btn-other" onclick="selectLocation('OTHER')"
+                <button id="btn-other-location" onclick="selectLocation('OTHER-LOCATION')"
                     class="pixel-box p-2 md:p-4 text-center hover:bg-yellow-50 cursor-pointer flex flex-col items-center justify-center h-full">
                     <div class="text-xl mb-2">🎤</div>
                     <div class="text-[8px] leading-tight">Other<br><span class="text-slate-400">Custom Extraction</span>
@@ -274,13 +284,41 @@
             <div id="other-input-container" class="hidden transition-all duration-300">
                 <textarea id="custom-plan" rows="2"
                     class="w-full pixel-box p-3 text-[10px] font-mono focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="Type the plan here..."></textarea>
+                    placeholder=""></textarea>
             </div>
         </div>
 
         <div id="step-3" class="space-y-4 opacity-50 pointer-events-none transition-opacity duration-500">
             <div class="text-xs text-center mb-2 bg-white border-2 border-pixel-dark p-2 inline-block mx-auto">STEP 3:
-                RATIONS (for the trip)</div>
+                DINNER PLANNING</div>
+
+            <div class="grid grid-cols-2 gap-2 md:gap-4">
+                <button id="btn-japanese" onclick="selectCuisine('JAPANESE')"
+                    class="pixel-box p-2 md:p-4 text-center hover:bg-blue-50 cursor-pointer flex flex-col items-center justify-center h-full">
+                    <div class="text-xl mb-2">🇯🇵</div>
+                    <div class="text-[8px] leading-tight">Japanese<br><span class="text-slate-400">Salmon, Sushi, Mochi, Udon</span></div>
+                </button>
+                <button id="btn-korean" onclick="selectCuisine('KOREAN')"
+                    class="pixel-box p-2 md:p-4 text-center hover:bg-pink-50 cursor-pointer flex flex-col items-center justify-center h-full">
+                    <div class="text-xl mb-2">🇰🇷</div>
+                    <div class="text-[8px] leading-tight">Korean<br><span class="text-slate-400">Could use your expertise</span></div>
+                </button>
+                <button id="btn-italian" onclick="selectCuisine('ITALIAN')"
+                    class="pixel-box p-2 md:p-4 text-center hover:bg-yellow-50 cursor-pointer flex flex-col items-center justify-center h-full">
+                    <div class="text-xl mb-2">🇮🇹</div>
+                    <div class="text-[8px] leading-tight">Italian<br><span class="text-slate-400">Carbonara, pasta, bruschetta</span></div>
+                </button>
+                <button id="btn-other" onclick="selectCuisine('OTHER')"
+                    class="pixel-box p-2 md:p-4 text-center hover:bg-yellow-50 cursor-pointer flex flex-col items-center justify-center h-full">
+                    <div class="text-xl mb-2">🎲</div>
+                    <div class="text-[8px] leading-tight">Other<br><span class="text-slate-400">Name it. Let's make it</span></div>
+                </button>
+            </div>
+        </div>
+
+        <div id="step-4" class="space-y-4 opacity-50 pointer-events-none transition-opacity duration-500">
+            <div class="text-xs text-center mb-2 bg-white border-2 border-pixel-dark p-2 inline-block mx-auto">STEP 4:
+                RATIONS (for trip)</div>
 
             <div class="grid grid-cols-2 gap-3">
                 <button onclick="toggleSupply(this, 'Sweet')"
@@ -304,7 +342,12 @@
                     <div class="text-[8px] font-mono">OTHER<br><span class="text-slate-400">(What else?)</span></div>
                 </button>
             </div>
-            <div class="text-[8px] text-center text-slate-400 italic mt-2">(Select all that apply)</div>
+
+            <div id="ration-input-container" class="hidden transition-all duration-300">
+                <textarea id="ration-details" rows="2"
+                    class="w-full pixel-box p-3 text-[10px] font-mono focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="Specific cravings? (e.g. Hot Cheetos, KitKat)"></textarea>
+            </div>
         </div>
 
         <div id="step-final" class="space-y-6 opacity-50 pointer-events-none transition-opacity duration-500">
@@ -380,6 +423,7 @@
 
         let characterSelected = false;
         let selectedLoc = "";
+        let selectedCuisine = "";
         let selectedSupplies = new Set();
 
         function rejectDriver() {
@@ -412,9 +456,10 @@
             const btns = {
                 'WTC': document.getElementById('btn-wtc'),
                 'HOME': document.getElementById('btn-home'),
-                'OTHER': document.getElementById('btn-other')
+                'OTHER-LOCATION': document.getElementById('btn-other-location')
             };
             const otherInput = document.getElementById('other-input-container');
+            const customInput = document.getElementById('custom-plan');
 
             Object.values(btns).forEach(btn => {
                 btn.style.backgroundColor = 'white';
@@ -428,14 +473,49 @@
             } else if (loc === 'HOME') {
                 btns['HOME'].style.backgroundColor = '#FFB6C1';
                 btns['HOME'].style.borderColor = '#000';
-            } else {
-                btns['OTHER'].style.backgroundColor = '#FFFACD';
-                btns['OTHER'].style.borderColor = '#000';
                 otherInput.classList.remove('hidden');
+                customInput.placeholder = "📍 Enter Williamsburg Address...";
+            } else if (loc === 'OTHER-LOCATION') {
+                btns['OTHER-LOCATION'].style.backgroundColor = '#FFFACD';
+                btns['OTHER-LOCATION'].style.borderColor = '#000';
+                otherInput.classList.remove('hidden');
+                customInput.placeholder = "📝 Type the plan here...";
             }
 
             // Reveal Step 3
             document.getElementById('step-3').classList.remove('opacity-50', 'pointer-events-none');
+        }
+
+        function selectCuisine(type) {
+            selectedCuisine = type;
+            const btns = {
+                'JAPANESE': document.getElementById('btn-japanese'),
+                'KOREAN': document.getElementById('btn-korean'),
+                'ITALIAN': document.getElementById('btn-italian'),
+                'OTHER': document.getElementById('btn-other')
+            };
+
+            Object.values(btns).forEach(btn => {
+                btn.style.backgroundColor = 'white';
+                btn.style.borderColor = '#483D8B';
+            });
+
+            if (type === 'JAPANESE') {
+                btns['JAPANESE'].style.backgroundColor = '#B0E0E6';
+                btns['JAPANESE'].style.borderColor = '#000';
+            } else if (type === 'KOREAN') {
+                btns['KOREAN'].style.backgroundColor = '#FFB6C1';
+                btns['KOREAN'].style.borderColor = '#000';
+            } else if (type === 'ITALIAN') {
+                btns['ITALIAN'].style.backgroundColor = '#FFFACD';
+                btns['ITALIAN'].style.borderColor = '#000';
+            } else {
+                btns['OTHER'].style.backgroundColor = '#FFFACD';
+                btns['OTHER'].style.borderColor = '#000';
+            }
+
+            // Reveal Step 4
+            document.getElementById('step-4').classList.remove('opacity-50', 'pointer-events-none');
         }
 
         function toggleSupply(btn, type) {
@@ -449,29 +529,34 @@
                 btn.style.borderColor = '#000';
             }
 
-            // Reveal Final
+            // Show/Hide Ration Detail Input based on selection
+            const rationInput = document.getElementById('ration-input-container');
             if (selectedSupplies.size > 0) {
+                rationInput.classList.remove('hidden');
                 document.getElementById('step-final').classList.remove('opacity-50', 'pointer-events-none');
                 document.getElementById('final-msg').innerText = "SYSTEMS GO. READY TO LAUNCH.";
+            } else {
+                rationInput.classList.add('hidden');
             }
         }
 
         function submitMission() {
-            if (!selectedLoc) return;
+            if (!selectedLoc || !selectedCuisine) return;
 
             const btn = document.querySelector('button[onclick="submitMission()"]');
             const originalText = btn.innerText;
             btn.innerText = "SENDING...";
             btn.classList.add('opacity-75', 'cursor-wait');
 
-            const customPlan = document.getElementById('custom-plan').value;
+            const locDetails = document.getElementById('custom-plan').value;
+            const rationDetails = document.getElementById('ration-details').value;
             const supplies = Array.from(selectedSupplies).join(", ");
 
             const formData = {
                 access_key: ACCESS_KEY,
                 subject: "❤️ Valentine Quest Update",
                 from_name: "Passenger Princess",
-                message: `Player 2 Selected: ${selectedLoc}\n\nSupplies Requested: ${supplies || "None"}\n\nCustom Note: ${customPlan || "None"}\n\nInventory: Lego Wildflowers (0%)`
+                message: `Player 2 Choice Log:\n\n📍 Location: ${selectedLoc}\n📝 Address/Note: ${locDetails || "N/A"}\n\n🍽️ Dinner Mode: ${selectedCuisine}\n\n🛍️ Supply Categories: ${supplies || "None"}\n🍿 Specific Snacks: ${rationDetails || "None"}\n\nInventory: Lego Wildflowers (0%)`
             };
 
             const json = JSON.stringify(formData);
