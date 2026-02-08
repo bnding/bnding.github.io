@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         pixel: {
-                            bg: '#FFF0F5',
-                            blue: '#B0E0E6',
-                            pink: '#FFB6C1',
-                            dark: '#483D8B',
+                            bg: '#FFF0F5',       
+                            blue: '#B0E0E6',     
+                            pink: '#FFB6C1',     
+                            dark: '#483D8B',     
                             green: '#90EE90',
                         }
                     },
@@ -48,11 +47,11 @@
     </script>
     <style>
         /* BACKGROUND: Pink with 8-Bit Pastel Blue Flowers */
-        body {
+        body { 
             background-color: #FFF0F5;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B0E0E6' fill-opacity='0.6'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-
+        
         .pixel-box {
             position: relative;
             background: white;
@@ -66,29 +65,17 @@
             transition: all 0.1s;
             cursor: pointer;
         }
-
-        .pixel-btn:active,
-        .pixel-btn.selected {
+        .pixel-btn:active, .pixel-btn.selected {
             transform: translate(4px, 4px);
             box-shadow: none !important;
         }
-
-        .selectable:hover {
-            transform: translateY(-2px);
-        }
-
+        
+        .selectable:hover { transform: translateY(-2px); }
+        
         /* Custom Scrollbar */
-        textarea::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        textarea::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        textarea::-webkit-scrollbar-thumb {
-            background: #483D8B;
-        }
+        textarea::-webkit-scrollbar { width: 8px; }
+        textarea::-webkit-scrollbar-track { background: #f1f1f1; }
+        textarea::-webkit-scrollbar-thumb { background: #483D8B; }
 
         /* Toast Notification */
         #toast {
@@ -108,43 +95,15 @@
             border: 2px solid #fff;
             box-shadow: 4px 4px 0px #000;
         }
+        #toast.show { visibility: visible; -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
 
-        #toast.show {
-            visibility: visible;
-            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-            animation: fadein 0.5s, fadeout 0.5s 2.5s;
-        }
-
-        @keyframes fadein {
-            from {
-                bottom: 0;
-                opacity: 0;
-            }
-
-            to {
-                bottom: 30px;
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeout {
-            from {
-                bottom: 30px;
-                opacity: 1;
-            }
-
-            to {
-                bottom: 0;
-                opacity: 0;
-            }
-        }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
 </head>
-
 <body class="text-pixel-dark min-h-screen font-pixel leading-relaxed pb-20 select-none">
 
-    <nav
-        class="sticky top-0 z-40 bg-pixel-bg/95 border-b-4 border-pixel-dark px-4 py-4 flex justify-between items-center shadow-sm">
+    <nav class="sticky top-0 z-40 bg-pixel-bg/95 border-b-4 border-pixel-dark px-4 py-4 flex justify-between items-center shadow-sm">
         <div class="text-[10px] text-pixel-dark flex items-center gap-2">
             <span>❤️ Be my Valentine?</span>
         </div>
@@ -153,9 +112,7 @@
         </div>
     </nav>
 
-    <a href="https://open.spotify.com/playlist/5tk5CBJcnH6Lm04pmM3z06?si=b57fe7ca9f924761&pt=2b378a4c68e4a4353422acc0654f5853"
-        target="_blank"
-        class="fixed top-20 right-4 z-50 pixel-box w-16 h-16 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-transform cursor-pointer bg-slate-800 text-white shadow-xl no-underline">
+    <a href="PASTE_SPOTIFY_LINK_HERE" target="_blank" class="fixed top-20 right-4 z-50 pixel-box w-16 h-16 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-transform cursor-pointer bg-slate-800 text-white shadow-xl no-underline">
         <div class="animate-spin-slow">💿</div>
         <div class="text-[6px] font-mono text-blue-300">🪈Tunes🎻</div>
     </a>
@@ -164,35 +121,31 @@
 
         <div class="space-y-4">
             <div class="pixel-box p-5 text-center bg-white/90">
-                <div class="text-xs mb-3 text-pixel-dark border-b-2 border-dashed border-pixel-dark pb-2 inline-block">
-                    MISSION BRIEFING</div>
-
-                <div class="flex justify-center gap-4 text-[8px] mb-4 font-mono text-slate-500">
-                    <div>📅 DATE: FEB 14</div>
-                    <div>⏰ START: 14:30</div>
-                </div>
-
                 <div class="text-[9px] leading-loose text-slate-700 font-mono text-left bg-blue-50/50 p-2 rounded">
                     <p class="mb-3">
-                        <span class="text-black-400 font-bold">OPERATION:</span><br>
+                        <span class="text-slate-900 font-bold">OPERATION:</span><br>
                         VALENTINE PROTOCOL
                     </p>
                     <p>
                         <span class="text-blue-500 font-bold">THE SITUATION:</span><br>
-                        Intelligence reports have confirmed that you (Alison Seo) and an unamed "Jungkook" look-alike
+                        Intelligence reports have confirmed that you (Alison Seo) and an unnamed Jungkook look-alike
                         have been experiencing symptoms of <strong>Nickosis</strong> and <strong>Allisonitis</strong>.
-                        <br>
+                        <br><br>
+                        These symptoms change the nature of the quantum space continuum - either slowing down or speeding up
+                        time.
                     </p>
                     <br>
                     <p class="mb-3">
-                        <span class="text-green-500 font-bold">MISSION:</span><br>
+                        <span class="text-green-600 font-bold">MISSION:</span><br>
                         Your mission, should you choose to accept it, is to navigate through the treacherous Valentine's
-                        Day landscape and complete the mission.
+                        Day landscape, extract with the Jungkook look-alike, and spend quality time with him until a
+                        cure has been found.
                     </p>
                     <p>
                         <span class="text-red-500 font-bold">WARNING:</span><br>
-                        Should you get caught... Deny any claims of disliking chicken feet and crocodiles. This message
-                        will self-destruct in 5 seconds
+                        Should you get caught by a performative or love-bombing male... Deny any claims of disliking
+                        chicken feet and crocodiles. This message
+                        will self-destruct in 5 seconds.
                         <br>
                         <br>
                         <strong>(just kidding, please don't close the tab)</strong>
@@ -202,23 +155,17 @@
         </div>
 
         <div class="space-y-4">
-            <div class="text-xs text-center mb-2 bg-white border-2 border-pixel-dark p-2 inline-block mx-auto">STEP 1:
-                SELECT PROFILE</div>
-
-
+            <div class="text-xs text-center mb-2 bg-white border-2 border-pixel-dark p-2 inline-block mx-auto">STEP 1: SELECT PLAYER</div>
+            
             <div id="card-driver" class="pixel-box p-4 selectable cursor-pointer" onclick="rejectDriver()">
                 <div class="flex items-start gap-4">
-                    <div
-                        class="w-12 h-12 bg-blue-100 border-2 border-pixel-dark flex items-center justify-center text-2xl shrink-0">
-                        🚗</div>
+                    <div class="w-12 h-12 bg-blue-100 border-2 border-pixel-dark flex items-center justify-center text-2xl shrink-0">🚗</div>
                     <div class="w-full">
                         <div class="flex justify-between items-center mb-2">
                             <h3 class="text-xs text-blue-600">THE DRIVER</h3>
                         </div>
-                        <div
-                            class="space-y-1 text-[8px] text-slate-600 font-mono border-t border-dashed border-slate-300 pt-2">
-                            <div class="flex justify-between text-red-400"><span>HATES:</span> <span>SUBWAY
-                                    GRATES AND THE NUMBER 23 🚫</span></div>
+                        <div class="space-y-1 text-[8px] text-slate-600 font-mono border-t border-dashed border-slate-300 pt-2">
+                            <div class="flex justify-between text-red-400"><span>Fears:</span> <span>SUBWAY GRATES</span></div>
                         </div>
                     </div>
                 </div>
@@ -226,20 +173,15 @@
 
             <div id="card-passenger" class="pixel-box p-4 selectable cursor-pointer" onclick="selectPassenger()">
                 <div class="flex items-start gap-4">
-                    <div
-                        class="w-12 h-12 bg-pink-100 border-2 border-pixel-dark flex items-center justify-center text-2xl shrink-0">
-                        🐰</div>
+                    <div class="w-12 h-12 bg-pink-100 border-2 border-pixel-dark flex items-center justify-center text-2xl shrink-0">🐰</div>
                     <div class="w-full">
                         <div class="flex justify-between items-center mb-2">
                             <h3 class="text-xs text-pink-500">THE PASSENGER PRINCESS</h3>
                             <div id="check-passenger" class="hidden text-green-500 text-xs">READY</div>
                         </div>
-                        <div
-                            class="space-y-1 text-[8px] text-slate-600 font-mono border-t border-dashed border-slate-300 pt-2">
+                        <div class="space-y-1 text-[8px] text-slate-600 font-mono border-t border-dashed border-slate-300 pt-2">
                             <div class="flex justify-between"><span>LOVES:</span> <span>BORI 🐶</span></div>
-                            <div class="flex justify-between"><span>BUFF:</span> <span>LUCKY CHARM 🍀</span></div>
-                            <div class="flex justify-between text-red-400"><span>HATES:</span> <span>FROGS 🐸</span>
-                            </div>
+                            <div class="flex justify-between"><span>SKILLS:</span> <span>LUCKY 🍀</span></div>
                         </div>
                     </div>
                 </div>
@@ -247,43 +189,31 @@
         </div>
 
         <div id="step-2" class="space-y-4 opacity-50 pointer-events-none transition-opacity duration-500">
-            <div class="text-xs text-center mb-2 bg-white border-2 border-pixel-dark p-2 inline-block mx-auto">STEP 2:
-                EXTRACTION</div>
-
+            <div class="text-xs text-center mb-2 bg-white border-2 border-pixel-dark p-2 inline-block mx-auto">STEP 2: PICK UP</div>
+            
             <div class="grid grid-cols-3 gap-2 md:gap-4">
-                <button id="btn-wtc" onclick="selectLocation('WTC')"
-                    class="pixel-box p-2 md:p-4 text-center hover:bg-blue-50 cursor-pointer flex flex-col items-center justify-center h-full">
+                <button id="btn-wtc" onclick="selectLocation('WTC')" class="pixel-box p-2 md:p-4 text-center hover:bg-blue-50 cursor-pointer flex flex-col items-center justify-center h-full">
                     <div class="text-xl mb-2">🏙️</div>
                     <div class="text-[8px] leading-tight">WTC<br><span class="text-slate-400">Path to car</span></div>
                 </button>
-                <button id="btn-home" onclick="selectLocation('HOME')"
-                    class="pixel-box p-2 md:p-4 text-center hover:bg-pink-50 cursor-pointer flex flex-col items-center justify-center h-full">
+                <button id="btn-home" onclick="selectLocation('HOME')" class="pixel-box p-2 md:p-4 text-center hover:bg-pink-50 cursor-pointer flex flex-col items-center justify-center h-full">
                     <div class="text-xl mb-2">🏡</div>
-                    <div class="text-[8px] leading-tight">You<br><span class="text-slate-400">Extract @ Wburg</span>
-                    </div>
+                    <div class="text-[8px] leading-tight">You<br><span class="text-slate-400">Pickup @ Wburg</span></div>
                 </button>
-                <button id="btn-other" onclick="selectLocation('OTHER')"
-                    class="pixel-box p-2 md:p-4 text-center hover:bg-yellow-50 cursor-pointer flex flex-col items-center justify-center h-full">
+                <button id="btn-other" onclick="selectLocation('OTHER')" class="pixel-box p-2 md:p-4 text-center hover:bg-yellow-50 cursor-pointer flex flex-col items-center justify-center h-full">
                     <div class="text-xl mb-2">🎤</div>
                     <div class="text-[8px] leading-tight">Other<br><span class="text-slate-400">Custom Vibe</span></div>
                 </button>
             </div>
 
             <div id="other-input-container" class="hidden transition-all duration-300">
-                <textarea id="custom-plan" rows="2"
-                    class="w-full pixel-box p-3 text-[10px] font-mono focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="Type the plan here..."></textarea>
-            </div>
-            <div id="wburg-input-container" class="hidden transition-all duration-300">
-                <textarea id="custom-plan" rows="2"
-                    class="w-full pixel-box p-3 text-[10px] font-mono focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="Address required..."></textarea>
+                <textarea id="custom-plan" rows="2" class="w-full pixel-box p-3 text-[10px] font-mono focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Type the plan here..."></textarea>
             </div>
         </div>
 
         <div id="step-final" class="space-y-6 opacity-50 pointer-events-none transition-opacity duration-500">
             <div class="text-xs text-center mb-2">--- SIDE QUESTS---</div>
-
+            
             <div class="pixel-box p-3 flex items-center gap-3">
                 <div class="text-lg">💐</div>
                 <div class="flex-1">
@@ -325,8 +255,7 @@
                 <div id="final-msg" class="text-[10px] mb-4 leading-loose font-mono">
                     STATUS: PENDING INPUT...
                 </div>
-                <button onclick="submitMission()"
-                    class="w-full py-3 bg-pixel-dark text-white text-[10px] pixel-btn shadow-pixel active:shadow-none hover:bg-slate-700 transition-all">
+                <button onclick="submitMission()" class="w-full py-3 bg-pixel-dark text-white text-[10px] pixel-btn shadow-pixel active:shadow-none hover:bg-slate-700 transition-all">
                     PRESS START
                 </button>
             </div>
@@ -337,9 +266,9 @@
     <div id="toast">Error</div>
 
     <script>
-        // ACCESS KEY PRESERVED
-        const ACCESS_KEY = "4e849226-4927-44f1-9dce-76f849de201e";
-
+        // PASTE YOUR WEB3FORMS KEY HERE
+        const ACCESS_KEY = "4e849226-4927-44f1-9dce-76f849de201e"; 
+        
         let characterSelected = false;
         let selectedLoc = "";
 
@@ -355,12 +284,12 @@
             if (characterSelected) return;
             const card = document.getElementById('card-passenger');
             const check = document.getElementById('check-passenger');
-
+            
             card.style.borderColor = '#FFB6C1';
             card.style.backgroundColor = '#FFF0F5';
             check.classList.remove('hidden');
             document.getElementById('card-driver').classList.add('opacity-50');
-
+            
             // Reveal Step 2
             document.getElementById('step-2').classList.remove('opacity-50', 'pointer-events-none');
             characterSelected = true;
@@ -376,7 +305,6 @@
                 'OTHER': document.getElementById('btn-other')
             };
             const otherInput = document.getElementById('other-input-container');
-            const wburgInput = document.getElementById('wburg-input-container');
             const finalMsg = document.getElementById('final-msg');
 
             Object.values(btns).forEach(btn => {
@@ -384,7 +312,7 @@
                 btn.style.borderColor = '#483D8B';
             });
             otherInput.classList.add('hidden');
-            wburgInput.classList.add('hidden');
+
             if (loc === 'WTC') {
                 btns['WTC'].style.backgroundColor = '#B0E0E6';
                 btns['WTC'].style.borderColor = '#000';
@@ -393,7 +321,6 @@
                 btns['HOME'].style.backgroundColor = '#FFB6C1';
                 btns['HOME'].style.borderColor = '#000';
                 finalMsg.innerText = "LOCATION: PICKUP \n(On my way)";
-                wburgInput.classList.remove('hidden');
             } else {
                 btns['OTHER'].style.backgroundColor = '#FFFACD';
                 btns['OTHER'].style.borderColor = '#000';
@@ -412,7 +339,7 @@
             const originalText = btn.innerText;
             btn.innerText = "SENDING...";
             btn.classList.add('opacity-75', 'cursor-wait');
-
+            
             const customPlan = document.getElementById('custom-plan').value;
             const formData = {
                 access_key: ACCESS_KEY,
@@ -431,24 +358,24 @@
                 },
                 body: json
             })
-                .then(async (response) => {
-                    if (response.status == 200) {
-                        triggerConfetti();
-                        btn.innerText = "MISSION ACCEPTED";
-                        btn.classList.remove('bg-pixel-dark', 'opacity-75', 'cursor-wait');
-                        btn.classList.add('bg-green-500', 'border-green-700');
-                        showToast("✅ LOG SENT TO DRIVER");
-                    } else {
-                        console.log(response);
-                        showToast("❌ ERROR. Check Console.");
-                        btn.innerText = originalText;
-                    }
-                })
-                .catch(error => {
-                    console.log(error);
-                    showToast("❌ ERROR. Network Issue.");
+            .then(async (response) => {
+                if (response.status == 200) {
+                    triggerConfetti();
+                    btn.innerText = "MISSION ACCEPTED";
+                    btn.classList.remove('bg-pixel-dark', 'opacity-75', 'cursor-wait');
+                    btn.classList.add('bg-green-500', 'border-green-700');
+                    showToast("✅ LOG SENT TO DRIVER");
+                } else {
+                    console.log(response);
+                    showToast("❌ ERROR. Check Console.");
                     btn.innerText = originalText;
-                });
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                showToast("❌ ERROR. Network Issue.");
+                btn.innerText = originalText;
+            });
         }
 
         function triggerConfetti() {
@@ -469,5 +396,4 @@
         }
     </script>
 </body>
-
 </html>
