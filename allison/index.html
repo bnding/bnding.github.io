@@ -281,13 +281,18 @@
             </div>
         </div>
 
+        <div id="step-5" class="space-y-4 opacity-50 pointer-events-none transition-opacity duration-500">
+            <div class="text-xs text-center mb-2 bg-white border-2 border-pixel-dark p-2 inline-block mx-auto">STEP 5: OPEN COMMS</div>
+            <textarea id="final-comments" rows="3" class="w-full pixel-box p-3 text-[10px] font-mono focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Lego ideas? Special requests? Compliments for the developer?"></textarea>
+        </div>
+
         <div id="step-final" class="space-y-6 opacity-50 pointer-events-none transition-opacity duration-500">
             <div class="text-xs text-center mb-2">--- SIDE QUESTS ---</div>
             
             <div class="pixel-box p-3 flex items-center gap-3">
                 <div class="text-lg">💐</div>
                 <div class="flex-1">
-                    <div class="flex justify-between text-[12px] mb-1">
+                    <div class="flex justify-between text-[8px] mb-1">
                         <span>LEGO WILDFLOWERS</span>
                         <span>0% (UNBUILT)</span>
                     </div>
@@ -412,7 +417,7 @@
                 customInput.placeholder = "📝 Type the plan here...";
             }
 
-            // Reveal Step 3 (Now RATIONS)
+            // Reveal Step 3 (Rations)
             document.getElementById('step-3').classList.remove('opacity-50', 'pointer-events-none');
         }
 
@@ -469,7 +474,8 @@
                 cuisineInput.classList.remove('hidden');
             }
 
-            // Reveal FINAL STEP
+            // Reveal STEP 5 and FINAL
+            document.getElementById('step-5').classList.remove('opacity-50', 'pointer-events-none');
             document.getElementById('step-final').classList.remove('opacity-50', 'pointer-events-none');
             document.getElementById('final-msg').innerText = "SYSTEMS GO. READY TO LAUNCH.";
         }
@@ -485,13 +491,14 @@
             const locDetails = document.getElementById('custom-plan').value;
             const cuisineDetails = document.getElementById('cuisine-details').value;
             const rationDetails = document.getElementById('ration-details').value;
+            const finalComments = document.getElementById('final-comments').value;
             const supplies = Array.from(selectedSupplies).join(", ");
             
             const formData = {
                 access_key: ACCESS_KEY,
                 subject: "❤️ Valentine Quest Update",
                 from_name: "Passenger Princess",
-                message: `Player 2 Choice Log:\n\n📍 Location: ${selectedLoc}\n📝 Address/Note: ${locDetails || "N/A"}\n\n🛍️ Supply Categories: ${supplies || "None"}\n🍿 Specific Snacks: ${rationDetails || "None"}\n\n🍽️ Dinner Mode: ${selectedCuisine}\n🍴 Specific Craving: ${cuisineDetails || "N/A"}`
+                message: `Player 2 Choice Log:\n\n📍 Location: ${selectedLoc}\n📝 Address/Note: ${locDetails || "N/A"}\n\n🛍️ Supply Categories: ${supplies || "None"}\n🍿 Specific Snacks: ${rationDetails || "None"}\n\n🍽️ Dinner Mode: ${selectedCuisine}\n🍴 Specific Craving: ${cuisineDetails || "N/A"}\n\n💌 Final Remarks: ${finalComments || "None"}`
             };
 
             const json = JSON.stringify(formData);
